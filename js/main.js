@@ -282,7 +282,7 @@
     ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
     cols = Math.floor(W / font);
     drops = new Array(cols).fill(0).map(() => Math.random() * (H / font));
-    speeds = new Array(cols).fill(0).map(() => 0.35 + Math.random() * 0.55);
+    speeds = new Array(cols).fill(0).map(() => 0.10 + Math.random() * 0.22);
   }
   resize();
   window.addEventListener('resize', resize);
