@@ -36,10 +36,10 @@
   const el = document.getElementById('typeLine');
   if (!el) return;
   const lines = [
-    'SOLO UNITY DEVELOPER',
+    'UNITY GAME DEVELOPER',
     'GAME DESIGNER · CODER · SHIPPER',
     '1 PROJECT LIVE · 3 IN THE FORGE',
-    'NO TEAM. NO COMPROMISE.',
+    'FULL PIPELINE · IDEA TO STORE',
     'BUILDING WORLDS SINCE 2019',
   ];
   let li = 0, ci = 0, deleting = false;
@@ -230,4 +230,129 @@
       bg.style.transform = `translateY(${y * 0.3}px)`;
     }
   }, { passive: true });
+})();
+
+// ---------- Matrix rain with cursor interaction ----------
+(() => {
+  const canvas = document.getElementById('matrix');
+  if (!canvas) return;
+
+  // Skip on small screens for performance
+  const smallScreen = () => window.innerWidth < 900 || window.matchMedia('(pointer: coarse)').matches;
+  if (smallScreen()){
+    canvas.style.display = 'none';
+    return;
+  }
+
+  const ctx = canvas.getContext('2d', { alpha: true });
+  const DPR = Math.min(window.devicePixelRatio || 1, 2);
+  const font = 18;
+  const chars = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEF<>[]{}#@$&/\\';
+  const charArr = chars.split('');
+
+  let W = 0, H = 0, cols = 0;
+  let drops = [];
+  let speeds = [];
+  let mx = -9999, my = -9999;
+  let sparks = [];  // trailing particles
+
+  function resize(){
+    W = window.innerWidth;
+    H = window.innerHeight;
+    canvas.width = W * DPR;
+    canvas.height = H * DPR;
+    canvas.style.width = W + 'px';
+    canvas.style.height = H + 'px';
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    cols = Math.floor(W / font);
+    drops = new Array(cols).fill(0).map(() => Math.random() * (H / font));
+    speeds = new Array(cols).fill(0).map(() => 0.35 + Math.random() * 0.55);
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  let lastMx = 0, lastMy = 0;
+  window.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    // spawn spark on fast movement
+    const dx = mx - lastMx, dy = my - lastMy;
+    const spd = Math.sqrt(dx*dx + dy*dy);
+    if (spd > 6 && sparks.length < 60){
+      sparks.push({
+        x: mx + (Math.random() - .5) * 12,
+        y: my + (Math.random() - .5) * 12,
+        vx: (Math.random() - .5) * 1.5,
+        vy: (Math.random() - .5) * 1.5,
+        life: 1,
+        ch: charArr[Math.floor(Math.random() * charArr.length)]
+      });
+    }
+    lastMx = mx; lastMy = my;
+  });
+  window.addEventListener('mouseleave', () => { mx = my = -9999; });
+
+  const HOLE = 60;
+  const RING = 150;
+
+  ctx.textBaseline = 'top';
+
+  function draw(){
+    // Fade previous frame to create trail
+    ctx.fillStyle = 'rgba(10, 9, 8, 0.09)';
+    ctx.fillRect(0, 0, W, H);
+
+    ctx.font = `${font}px "Share Tech Mono", monospace`;
+
+    for (let i = 0; i < cols; i++){
+      const x = i * font + font / 2;
+      const y = drops[i] * font;
+
+      const dx = x - mx;
+      const dy = y - my;
+      const dist = Math.sqrt(dx*dx + dy*dy);
+
+      if (dist < HOLE){
+        // skip — creates hole around cursor
+      } else if (dist < RING){
+        // hot glowing ring around cursor
+        const t = (dist - HOLE) / (RING - HOLE);
+        const alpha = 0.9 - t * 0.55;
+        const c = charArr[Math.floor(Math.random() * charArr.length)];
+        ctx.fillStyle = `rgba(255, 210, 110, ${alpha})`;
+        ctx.shadowColor = 'rgba(255, 200, 90, 0.9)';
+        ctx.shadowBlur = 10;
+        ctx.fillText(c, x - font/2, y);
+        ctx.shadowBlur = 0;
+      } else {
+        const c = charArr[Math.floor(Math.random() * charArr.length)];
+        if (Math.random() > 0.985){
+          ctx.fillStyle = 'rgba(255, 220, 150, 0.75)';
+        } else {
+          ctx.fillStyle = 'rgba(255, 149, 0, 0.32)';
+        }
+        ctx.fillText(c, x - font/2, y);
+      }
+
+      if (y > H + font && Math.random() > 0.97){
+        drops[i] = 0;
+      }
+      drops[i] += speeds[i];
+    }
+
+    // Trailing sparks
+    ctx.font = `${font - 4}px "Share Tech Mono", monospace`;
+    for (let s of sparks){
+      s.x += s.vx;
+      s.y += s.vy;
+      s.life -= 0.02;
+      if (s.life > 0){
+        ctx.fillStyle = `rgba(255, 220, 150, ${s.life})`;
+        ctx.fillText(s.ch, s.x, s.y);
+      }
+    }
+    sparks = sparks.filter(s => s.life > 0);
+
+    requestAnimationFrame(draw);
+  }
+  draw();
 })();

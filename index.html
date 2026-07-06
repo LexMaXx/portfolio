@@ -15,7 +15,16 @@
 <div class="noise"></div>
 <div class="scanlines"></div>
 <div class="grid-bg"></div>
-<div class="cursor" id="cursor"></div>
+<canvas id="matrix"></canvas>
+<div class="cursor" id="cursor">
+  <span class="c-corner tl"></span>
+  <span class="c-corner tr"></span>
+  <span class="c-corner bl"></span>
+  <span class="c-corner br"></span>
+  <span class="c-cross-h"></span>
+  <span class="c-cross-v"></span>
+  <span class="c-ring"></span>
+</div>
 <div class="cursor-dot" id="cursorDot"></div>
 
 <!-- ============ HUD FRAME ============ -->
@@ -102,11 +111,17 @@
           <div class="ph-icon">◉</div>
           <div class="ph-text">assets/avatar/selfi.jpg</div>
         </div>
+        <span class="frame-corner tl"></span>
+        <span class="frame-corner tr"></span>
+        <span class="frame-corner bl"></span>
+        <span class="frame-corner br"></span>
+        <div class="frame-scan"></div>
+        <div class="frame-noise"></div>
         <div class="portrait-overlay">
           <div class="portrait-hud">
             <span>ID: LEXMAX_001</span>
             <span>STATUS: ACTIVE</span>
-            <span>CLASS: SOLO_DEV</span>
+            <span>CLASS: DEV/ENGINEER</span>
           </div>
         </div>
       </div>
@@ -126,8 +141,8 @@
       <div class="creed">
         <div class="creed-mark">"</div>
         <div class="creed-text">
-          Я не работаю в команде. Я и есть команда.<br>
-          Один разработчик — один вектор — ноль компромиссов.
+          Флагманский проект — от прототипа до Google Play — сделал соло.<br>
+          Весь пайплайн в одних руках: код, дизайн, звук, UI, релиз.
         </div>
       </div>
 
