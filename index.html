@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LexMaX — Solo Unity Game Developer</title>
+<meta name="description" content="Мизевич Сергей (LexMaX) — соло-разработчик игр на Unity. Steel and Fire, FEARBOUND, AETHERION.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&family=Orbitron:wght@600;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="noise"></div>
+<div class="scanlines"></div>
+<div class="grid-bg"></div>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- ============ HUD FRAME ============ -->
+<div class="hud-frame">
+  <div class="hud-corner tl"></div>
+  <div class="hud-corner tr"></div>
+  <div class="hud-corner bl"></div>
+  <div class="hud-corner br"></div>
+</div>
+
+<!-- ============ TOP BAR ============ -->
+<header class="topbar">
+  <div class="logo">
+    <span class="logo-bracket">[</span>
+    <span class="logo-text">LEX<span class="accent">MAX</span></span>
+    <span class="logo-bracket">]</span>
+    <span class="logo-sub">v2026.07</span>
+  </div>
+  <nav class="nav">
+    <a href="#about" data-nav>// ABOUT</a>
+    <a href="#published" data-nav>// RELEASED</a>
+    <a href="#wip" data-nav>// IN_DEV</a>
+    <a href="#skills" data-nav>// STACK</a>
+    <a href="#contact" data-nav>// CONTACT</a>
+  </nav>
+  <div class="status">
+    <span class="status-dot"></span>
+    <span id="statusText">ONLINE</span>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero-bg-video"></div>
+  <div class="hero-tag">// SOLO DEVELOPER · UNITY ENGINE · SINCE 2019</div>
+  <h1 class="hero-title">
+    <span class="glitch" data-text="MIZEVICH">MIZEVICH</span>
+    <span class="glitch small" data-text="SERGEY">SERGEY</span>
+  </h1>
+  <div class="hero-subtitle">
+    <span class="type-line" id="typeLine"></span><span class="type-cursor">▊</span>
+  </div>
+
+  <div class="hero-meta">
+    <div class="meta-block">
+      <div class="meta-label">PROJECTS SHIPPED</div>
+      <div class="meta-value" data-count="1">1</div>
+    </div>
+    <div class="meta-block">
+      <div class="meta-label">IN DEVELOPMENT</div>
+      <div class="meta-value" data-count="3">3</div>
+    </div>
+    <div class="meta-block">
+      <div class="meta-label">TEAM SIZE</div>
+      <div class="meta-value">01</div>
+    </div>
+    <div class="meta-block">
+      <div class="meta-label">YEARS ACTIVE</div>
+      <div class="meta-value" data-count="6">6</div>
+    </div>
+  </div>
+
+  <a href="#published" class="hero-cta">
+    <span>ENTER THE ARSENAL</span>
+    <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 3v14m0 0l-6-6m6 6l6-6"/></svg>
+  </a>
+
+  <div class="hero-scroll">SCROLL ▼</div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="section" id="about">
+  <div class="section-head">
+    <div class="section-num">01</div>
+    <h2 class="section-title">DOSSIER<span class="accent">.</span></h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="about-grid">
+    <div class="about-portrait">
+      <div class="portrait-frame">
+        <img src="assets/avatar/avatar.jpg" alt="Sergey Mizevich" onerror="this.style.display='none';this.parentElement.classList.add('no-img')">
+        <div class="portrait-placeholder">
+          <div class="ph-icon">◉</div>
+          <div class="ph-text">assets/avatar/avatar.jpg</div>
+        </div>
+        <div class="portrait-overlay">
+          <div class="portrait-hud">
+            <span>ID: LEXMAX_001</span>
+            <span>STATUS: ACTIVE</span>
+            <span>CLASS: SOLO_DEV</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-text">
+      <p class="lead">
+        Я разработчик игр на <span class="accent">Unity</span>. Работаю <span class="accent">соло</span> — от концепта и кода до артдирекшна, звука и релиза. Один человек, один пайплайн, один результат.
+      </p>
+      <p>
+        За плечами — опубликованный проект в Google Play, три активных разработки разных жанров и множество прототипов. Пишу код, собираю сцены, рисую UI, монтирую трейлеры. Продукт целиком — моя ответственность.
+      </p>
+      <p>
+        Помимо игр — веб-дизайн и фронтенд. Этот сайт я сделал сам. Два высших экономических образования дают трезвый взгляд на unit-экономику проекта: не только «сделать красиво», но и «сделать так, чтобы это жило».
+      </p>
+
+      <div class="creed">
+        <div class="creed-mark">"</div>
+        <div class="creed-text">
+          Я не работаю в команде. Я и есть команда.<br>
+          Один разработчик — один вектор — ноль компромиссов.
+        </div>
+      </div>
+
+      <div class="tags">
+        <span class="tag">Unity</span>
+        <span class="tag">C#</span>
+        <span class="tag">Solo Dev</span>
+        <span class="tag">Game Design</span>
+        <span class="tag">Web Design</span>
+        <span class="tag">Frontend</span>
+        <span class="tag">Published on Google Play</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RELEASED — STEEL AND FIRE ============ -->
+<section class="section" id="published">
+  <div class="section-head">
+    <div class="section-num">02</div>
+    <h2 class="section-title">RELEASED<span class="accent">.</span></h2>
+    <div class="section-line"></div>
+  </div>
+
+  <article class="project featured">
+    <div class="project-banner" style="background-image: url('assets/projects/steel-and-fire/cover.jpg')">
+      <div class="banner-fallback">
+        <div class="bf-text">assets/projects/steel-and-fire/cover.jpg</div>
+      </div>
+      <div class="banner-overlay"></div>
+      <div class="banner-badge">SHIPPED · LIVE ON GOOGLE PLAY</div>
+      <div class="banner-title">
+        <div class="banner-genre">// REAL-TIME WAR STRATEGY</div>
+        <h3>STEEL &amp; FIRE</h3>
+        <div class="banner-sub">War Strategy</div>
+      </div>
+    </div>
+
+    <div class="project-body">
+      <div class="project-meta">
+        <div class="pmeta"><div class="pmeta-l">ROLE</div><div class="pmeta-v">Solo Developer</div></div>
+        <div class="pmeta"><div class="pmeta-l">ENGINE</div><div class="pmeta-v">Unity</div></div>
+        <div class="pmeta"><div class="pmeta-l">PLATFORM</div><div class="pmeta-v">Android</div></div>
+        <div class="pmeta"><div class="pmeta-l">STATUS</div><div class="pmeta-v accent">LIVE</div></div>
+      </div>
+
+      <p class="project-desc">
+        Флагманский проект и первый релиз в Google Play. Военная стратегия в реальном времени: постройка базы, управление войсками, боевые операции. Весь цикл — от прототипа до сторовской страницы — выполнен соло.
+      </p>
+
+      <div class="gallery" data-project="steel-and-fire">
+        <div class="gallery-item"><img src="assets/projects/steel-and-fire/screen-1.jpg" alt="Steel and Fire screen 1" onerror="this.parentElement.classList.add('empty')"><span class="ph">screen-1.jpg</span></div>
+        <div class="gallery-item"><img src="assets/projects/steel-and-fire/screen-2.jpg" alt="Steel and Fire screen 2" onerror="this.parentElement.classList.add('empty')"><span class="ph">screen-2.jpg</span></div>
+        <div class="gallery-item"><img src="assets/projects/steel-and-fire/screen-3.jpg" alt="Steel and Fire screen 3" onerror="this.parentElement.classList.add('empty')"><span class="ph">screen-3.jpg</span></div>
+        <div class="gallery-item"><img src="assets/projects/steel-and-fire/screen-4.jpg" alt="Steel and Fire screen 4" onerror="this.parentElement.classList.add('empty')"><span class="ph">screen-4.jpg</span></div>
+        <div class="gallery-item video"><video src="assets/projects/steel-and-fire/trailer.mp4" muted loop playsinline preload="metadata"></video><span class="ph">trailer.mp4</span><div class="play-badge">▶ TRAILER</div></div>
+      </div>
+
+      <div class="project-actions">
+        <a class="btn primary" href="https://play.google.com/store/apps/details?id=com.steelandfire.game" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M3 20.5V3.5c0-.5.2-.9.6-1.2L14 12 3.6 21.7c-.4-.3-.6-.7-.6-1.2M14.3 12.7l2.7 2.7-9.3 5.3zM17 8.6L14.3 11.3 5.7 3.3z"/></svg>
+          GOOGLE PLAY
+        </a>
+      </div>
+    </div>
+  </article>
+</section>
+
+<!-- ============ IN DEVELOPMENT ============ -->
+<section class="section" id="wip">
+  <div class="section-head">
+    <div class="section-num">03</div>
+    <h2 class="section-title">IN DEVELOPMENT<span class="accent">.</span></h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="wip-grid">
+
+    <!-- FEARBOUND -->
+    <article class="project wip" data-color="crimson">
+      <div class="wip-cover" style="background-image: url('assets/projects/fearbound/cover.jpg')">
+        <div class="banner-fallback"><div class="bf-text">assets/projects/fearbound/cover.jpg</div></div>
+        <div class="wip-cover-overlay"></div>
+        <div class="wip-progress"><div class="wip-progress-fill" style="width:55%"></div><span>PROGRESS · 55%</span></div>
+      </div>
+      <div class="wip-body">
+        <div class="wip-genre">// PSYCHOLOGICAL HORROR</div>
+        <h3 class="wip-title">FEARBOUND</h3>
+        <p class="wip-desc">Хоррор с плотной атмосферой и упором на психологическое давление. Собственный контент, звук, механики страха.</p>
+        <div class="wip-meta">
+          <span>Unity</span><span>·</span><span>PC</span><span>·</span><span class="accent">SOLO</span>
+        </div>
+        <div class="gallery small" data-project="fearbound">
+          <div class="gallery-item"><img src="assets/projects/fearbound/screen-1.jpg" alt onerror="this.parentElement.classList.add('empty')"><span class="ph">screen-1.jpg</span></div>
+          <div class="gallery-item"><img src="assets/projects/fearbound/screen-2.jpg" alt onerror="this.parentElement.classList.add('empty')"><span class="ph">screen-2.jpg</span></div>
+          <div class="gallery-item"><img src="assets/projects/fearbound/screen-3.jpg" alt onerror="this.parentElement.classList.add('empty')"><span class="ph">screen-3.jpg</span></div>
+          <div class="gallery-item video"><video src="assets/projects/fearbound/trailer.mp4" muted loop playsinline preload="metadata"></video><span class="ph">trailer.mp4</span><div class="play-badge">▶</div></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- AETHERION -->
+    <article class="project wip" data-color="cyan">
+      <div class="wip-cover" style="background-image: url('assets/projects/aetherion/cover.jpg')">
+        <div class="banner-fallback"><div class="bf-text">assets/projects/aetherion/cover.jpg</div></div>
+        <div class="wip-cover-overlay"></div>
+        <div class="wip-progress"><div class="wip-progress-fill" style="width:35%"></div><span>PROGRESS · 35%</span></div>
+      </div>
+      <div class="wip-body">
+        <div class="wip-genre">// FANTASY / ACTION</div>
+        <h3 class="wip-title">AETHERION</h3>
+        <p class="wip-desc">Амбициозный экшн в собственной вселенной. Мир, боёвка, лор — всё делается с нуля, без готовых ассетов на скелете.</p>
+        <div class="wip-meta">
+          <span>Unity</span><span>·</span><span>PC</span><span>·</span><span class="accent">SOLO</span>
+        </div>
+        <div class="gallery small" data-project="aetherion">
+          <div class="gallery-item"><img src="assets/projects/aetherion/screen-1.jpg" alt onerror="this.parentElement.classList.add('empty')"><span class="ph">screen-1.jpg</span></div>
+          <div class="gallery-item"><img src="assets/projects/aetherion/screen-2.jpg" alt onerror="this.parentElement.classList.add('empty')"><span class="ph">screen-2.jpg</span></div>
+          <div class="gallery-item"><img src="assets/projects/aetherion/screen-3.jpg" alt onerror="this.parentElement.classList.add('empty')"><span class="ph">screen-3.jpg</span></div>
+          <div class="gallery-item video"><video src="assets/projects/aetherion/trailer.mp4" muted loop playsinline preload="metadata"></video><span class="ph">trailer.mp4</span><div class="play-badge">▶</div></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- BATHYSCAPHE -->
+    <article class="project wip" data-color="teal">
+      <div class="wip-cover" style="background-image: url('assets/projects/bathyscaphe/cover.jpg')">
+        <div class="banner-fallback"><div class="bf-text">assets/projects/bathyscaphe/cover.jpg</div></div>
+        <div class="wip-cover-overlay"></div>
+        <div class="wip-progress"><div class="wip-progress-fill" style="width:25%"></div><span>PROGRESS · 25%</span></div>
+      </div>
+      <div class="wip-body">
+        <div class="wip-genre">// DEEP-SEA SIMULATOR</div>
+        <h3 class="wip-title">UNTITLED · BATHYSCAPHE</h3>
+        <p class="wip-desc">Симулятор батискафа: погружение, давление, изоляция. Название пока в разработке — как и сама глубина.</p>
+        <div class="wip-meta">
+          <span>Unity</span><span>·</span><span>PC</span><span>·</span><span class="accent">SOLO</span>
+        </div>
+        <div class="gallery small" data-project="bathyscaphe">
+          <div class="gallery-item"><img src="assets/projects/bathyscaphe/screen-1.jpg" alt onerror="this.parentElement.classList.add('empty')"><span class="ph">screen-1.jpg</span></div>
+          <div class="gallery-item"><img src="assets/projects/bathyscaphe/screen-2.jpg" alt onerror="this.parentElement.classList.add('empty')"><span class="ph">screen-2.jpg</span></div>
+          <div class="gallery-item"><img src="assets/projects/bathyscaphe/screen-3.jpg" alt onerror="this.parentElement.classList.add('empty')"><span class="ph">screen-3.jpg</span></div>
+          <div class="gallery-item video"><video src="assets/projects/bathyscaphe/trailer.mp4" muted loop playsinline preload="metadata"></video><span class="ph">trailer.mp4</span><div class="play-badge">▶</div></div>
+        </div>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="vault-note">
+    <span class="vault-icon">▨</span>
+    <div>
+      <b>VAULT · [CLASSIFIED]</b><br>
+      Кроме показанных, есть ещё прототипы разных жанров. Они пока слишком сырые — покажу, когда будут готовы к дневному свету.
+    </div>
+  </div>
+</section>
+
+<!-- ============ STACK ============ -->
+<section class="section" id="skills">
+  <div class="section-head">
+    <div class="section-num">04</div>
+    <h2 class="section-title">STACK<span class="accent">.</span></h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="stack-grid">
+    <div class="stack-col">
+      <div class="stack-h">// ENGINE &amp; CODE</div>
+      <ul class="stack-list">
+        <li><span>Unity 3D/2D</span><span class="bar" style="--v:95%"></span></li>
+        <li><span>C#</span><span class="bar" style="--v:92%"></span></li>
+        <li><span>Shader / VFX</span><span class="bar" style="--v:70%"></span></li>
+        <li><span>UI / UX (in-game)</span><span class="bar" style="--v:85%"></span></li>
+        <li><span>Build &amp; Publish</span><span class="bar" style="--v:88%"></span></li>
+      </ul>
+    </div>
+
+    <div class="stack-col">
+      <div class="stack-h">// DESIGN &amp; CONTENT</div>
+      <ul class="stack-list">
+        <li><span>Game Design</span><span class="bar" style="--v:88%"></span></li>
+        <li><span>Level Design</span><span class="bar" style="--v:82%"></span></li>
+        <li><span>Trailer / Video Edit</span><span class="bar" style="--v:78%"></span></li>
+        <li><span>Web Design</span><span class="bar" style="--v:85%"></span></li>
+        <li><span>Frontend (HTML/CSS/JS)</span><span class="bar" style="--v:80%"></span></li>
+      </ul>
+    </div>
+
+    <div class="stack-col">
+      <div class="stack-h">// SOFT / BUSINESS</div>
+      <ul class="stack-list">
+        <li><span>Solo Production</span><span class="bar" style="--v:100%"></span></li>
+        <li><span>Project Ownership</span><span class="bar" style="--v:95%"></span></li>
+        <li><span>Экономика / Аналитика</span><span class="bar" style="--v:90%"></span></li>
+        <li><span>Store Publishing</span><span class="bar" style="--v:85%"></span></li>
+      </ul>
+      <div class="edu">
+        <div class="edu-h">// EDUCATION</div>
+        <div class="edu-item">◆ Высшее экономическое #1</div>
+        <div class="edu-item">◆ Высшее экономическое #2</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="section" id="contact">
+  <div class="section-head">
+    <div class="section-num">05</div>
+    <h2 class="section-title">CONTACT<span class="accent">.</span></h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="contact-box">
+    <div class="contact-l">
+      <div class="contact-title">READY FOR THE NEXT MISSION</div>
+      <p>Открыт для интересных <b>соло-контрактов</b>, заказов на разработку игр под Unity, публикацию, консультации и разработку сайтов.</p>
+      <p class="mono">// пиши напрямую — отвечу лично, без менеджеров</p>
+    </div>
+
+    <div class="contact-r">
+      <a class="contact-link" href="mailto:thelifeafterarena@gmail.com">
+        <span class="cl-tag">EMAIL</span>
+        <span class="cl-val">thelifeafterarena@gmail.com</span>
+      </a>
+      <a class="contact-link" href="https://play.google.com/store/apps/details?id=com.steelandfire.game" target="_blank" rel="noopener">
+        <span class="cl-tag">GOOGLE PLAY</span>
+        <span class="cl-val">Steel and Fire</span>
+      </a>
+      <a class="contact-link disabled" href="#">
+        <span class="cl-tag">TELEGRAM</span>
+        <span class="cl-val">// добавь ссылку в HTML</span>
+      </a>
+      <a class="contact-link disabled" href="#">
+        <span class="cl-tag">YOUTUBE</span>
+        <span class="cl-val">// добавь ссылку в HTML</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="foot">
+  <div class="foot-l">© 2026 MIZEVICH SERGEY · LEXMAX</div>
+  <div class="foot-c">// SOLO DEV · UNITY · MADE WITH SPITE AND CAFFEINE</div>
+  <div class="foot-r">SYS/OK · <span id="clock">--:--:--</span></div>
+</footer>
+
+<!-- ============ LIGHTBOX ============ -->
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" id="lbClose">×</button>
+  <button class="lb-prev" id="lbPrev">‹</button>
+  <button class="lb-next" id="lbNext">›</button>
+  <div class="lb-content" id="lbContent"></div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
