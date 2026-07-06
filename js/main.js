@@ -172,6 +172,16 @@
       v.controls = true;
       v.autoplay = true;
       lbContent.appendChild(v);
+    } else if (item.type === 'youtube'){
+      const iframe = document.createElement('iframe');
+      iframe.src = `https://www.youtube.com/embed/${item.src}?autoplay=1&rel=0`;
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      iframe.allowFullscreen = true;
+      iframe.setAttribute('frameborder', '0');
+      iframe.style.width = 'min(90vw, 1280px)';
+      iframe.style.height = 'min(50.625vw, 720px)';
+      iframe.style.border = '1px solid var(--accent)';
+      lbContent.appendChild(iframe);
     } else {
       const img = document.createElement('img');
       img.src = item.src;
@@ -196,6 +206,10 @@
   document.querySelectorAll('.gallery').forEach(gallery => {
     const items = [...gallery.querySelectorAll('.gallery-item')].map(it => {
       const isVideo = it.classList.contains('video');
+      const isYT = it.classList.contains('youtube');
+      if (isYT){
+        return { type: 'youtube', src: it.dataset.yt || '', el: it };
+      }
       const media = it.querySelector(isVideo ? 'video' : 'img');
       return { type: isVideo ? 'video' : 'image', src: media?.getAttribute('src') || '', el: it };
     });
